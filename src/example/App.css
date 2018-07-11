@@ -1,0 +1,43 @@
+body {
+  background-color: #ebebeb; }
+
+.route-wrapper {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+
+/*
+.view {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+*/
+.page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; }
+
+.page-content {
+  /* has to be scroll, not auto */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 3.4285714285714285714285714285714rem;
+  padding-bottom: 3.4285714285714285714285714285714rem;
+  position: relative;
+  height: 100%; }
+
+.navbar {
+  z-index: 2; }
+
+.toolbar {
+  max-height: 3.4285714285714285714285714285714rem;
+  position: absolute;
+  bottom: 0; }
+  .toolbar .ui.labeled.icon.menu .item {
+    padding-top: 0.82631818181818181818181818181818em;
+    padding-bottom: 0.82631818181818181818181818181818em; }

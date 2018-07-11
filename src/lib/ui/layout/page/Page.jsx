@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Container, Segment } from 'semantic-ui-react';
 
-import Helmet from 'lib/ui/helmet/Helmet';
-import Navbar from 'lib/ui/navbar/Navbar';
-import Toolbar from 'lib/ui/toolbar/Toolbar';
+import Helmet from 'lib/ui/layout/helmet/Helmet';
+import Navbar from 'lib/ui/layout/navbar/Navbar';
+import Toolbar from 'lib/ui/layout/toolbar/Toolbar';
 
 export default class Page extends Component {
   render() {

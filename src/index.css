@@ -1,3 +1,81 @@
 body {
-  font-size: 14px;
-}
+  font-size: 14px; }
+
+/**
+ * semantic-ui-react/lib/Dropdown
+ * mobile-friendly enhancements
+ */
+@media only screen and (min-width: 768px) {
+  .dropdown--dummy, .dropdown--background {
+    display: none !important; } }
+
+@media only screen and (max-width: 767px) {
+  .ui.active.dropdown {
+    position: fixed;
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    border: 0 none transparent !important;
+    background: transparent !important;
+    z-index: 1001; }
+    .ui.active.dropdown.pointing > .menu {
+      margin-top: 0; }
+      .ui.active.dropdown.pointing > .menu:after {
+        display: none;
+        top: 0;
+        left: 0;
+        margin: 0; }
+    .ui.active.dropdown.selection {
+      z-index: 1001; }
+    .ui.active.dropdown:hover {
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important; }
+    .ui.active.dropdown.fluid {
+      width: auto; }
+    .ui.active.dropdown .menu {
+      border-radius: .28571429rem;
+      border-top-width: 1px !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100%; }
+  .dropdown--background {
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1001;
+    /**
+     * iOS software design issue.
+     * https://github.com/Semantic-Org/Semantic-UI-React/issues/1832
+     * https://github.com/Semantic-Org/Semantic-UI-React/pull/1833#issuecomment-313713611
+     */
+    cursor: pointer; } }
+
+.navbar, .toolbar {
+  position: fixed;
+  width: 100%; }
+  .navbar .ui.menu, .toolbar .ui.menu {
+    border: 0 none transparent;
+    border-radius: 0; }
+
+.navbar {
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; }
+  .navbar .ui.menu:not(.vertical) .item.left, .navbar .ui.menu:not(.vertical) .menu.left {
+    margin: 0 !important; }
+  .navbar .ui.menu .item > i.icon.navbar-button {
+    margin: 0; }
+
+.toolbar {
+  bottom: 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px -1px 8px, rgba(0, 0, 0, 0.12) 0px -1px 8px; }
+  .toolbar .ui.menu.labeled.icon .item {
+    min-width: 0;
+    border-radius: 0; }
+    .toolbar .ui.menu.labeled.icon .item > .icon:not(.dropdown) {
+      margin-bottom: 0 !important; }

@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 
-import { ToolbarProvider } from 'lib/ui/toolbar/Toolbar';
+import { ToolbarProvider } from 'lib/ui/layout/toolbar/Toolbar';
 
+import 'example/App.css';
 import AppToolbarMenu from 'example/AppToolbarMenu';
-import AppPage from 'example/Page';
+import AppView from 'example/AppView';
+import AnimatedSwitchDemo from './AnimatedSwitchDemo';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <ToolbarProvider value={{ content: <AppToolbarMenu /> }}>
-          <AppPage />
-        </ToolbarProvider>
-      </div>
+      <ToolbarProvider value={{ content: <AppToolbarMenu /> }}>
+        <AppView>
+          <AnimatedSwitchDemo />
+        </AppView>
+      </ToolbarProvider>
     );
   }
 }

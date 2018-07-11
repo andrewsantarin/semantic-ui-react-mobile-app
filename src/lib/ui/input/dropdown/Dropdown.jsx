@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { Dropdown as DropdownComponent, Portal } from 'semantic-ui-react';
 
-import isMobile from 'lib/ui/layout/is-mobile';
+import isMobile from 'lib/ui/is-mobile';
+
+import DropdownBackdrop from './DropdownBackdrop';
 
 export default class Dropdown extends Component {
   constructor(props) {
@@ -97,7 +99,7 @@ export default class Dropdown extends Component {
               className={dummy.className}
               dangerouslySetInnerHTML={{ __html: dummy.innerHTML }}
             />
-            <div className="dropdown--background" />
+            <DropdownBackdrop />
           </Fragment>
         )}
         {!open && (

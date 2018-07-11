@@ -5,6 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { withLastLocation } from 'react-router-last-location';
 import { Icon } from 'semantic-ui-react';
 
+import withBaseClassName from 'lib/ui/with-base-class-name';
+
 export const PROP_TYPES = {
   link : PropTypes.bool,
   name : PropTypes.string,
@@ -57,12 +59,17 @@ export class BackButton extends Component {
       lastLocation,
 
       // semantic-ui-react
+      className: css,
+
       ...props
     } = this.props;
+
+    const className = withBaseClassName('navbar-button back-button')(css);
 
     return (
       <Icon
         {...props}
+        {...{className}}
         onClick={this.handleClick}
       />
     );

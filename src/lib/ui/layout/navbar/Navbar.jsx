@@ -2,20 +2,43 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Menu } from 'semantic-ui-react';
 
-import BackButton from 'lib/ui/back-button/BackButton';
-import UserButton from 'lib/ui/user-button/UserButton';
+import withBaseClassName from 'lib/ui/with-base-class-name';
+import BackButton from 'lib/ui/layout/back-button/BackButton';
+import UserButton from 'lib/ui/layout/user-button/UserButton';
+
+export const PROP_TYPES = {
+  wrapper: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]).isRequired,
+};
+
+export const DEFAULT_PROPS = {
+  wrapper: 'div',
+};
 
 export default class Navbar extends Component {
   render() {
     const {
+      wrapper: Wrapper,
+      className: css,
       backButton,
       userButton,
-
       title,
+
+      // semantic-ui-react
+      menuProps,
+      ...props
     } = this.props;
+
+    const className = withBaseClassName('navbar')(css);
+
     return (
-      <nav className="navbar">
-        <Menu>
+      <Wrapper
+        {...props}
+        {...{className}}
+      >
+        <Menu {...menuProps}>
           {backButton && (
             <Menu.Item className="left">
               <BackButton />
@@ -28,11 +51,16 @@ export default class Navbar extends Component {
           
           {userButton && (
             <Menu.Menu className="right" position="right">
-              <UserButton />
+              <Menu.Item className="right">
+                <UserButton />
+              </Menu.Item>
             </Menu.Menu>
           )}
         </Menu>
-      </nav>
+      </Wrapper>
     );
   }
 }
+
+Navbar.propTypes    = PROP_TYPES;
+Navbar.defaultProps = DEFAULT_PROPS;

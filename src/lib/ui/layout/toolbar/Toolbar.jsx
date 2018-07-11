@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-export { Provider, withToolbar } from './ToolbarContext';
+import withBaseClassName from 'lib/ui/with-base-class-name';
+
+export { ToolbarProvider, withToolbar } from './ToolbarContext';
 
 export const PROP_TYPES = {
-  as: PropTypes.oneOfType([
+  wrapper: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
   ]).isRequired,
 };
 
 export const DEFAULT_PROPS = {
-  as: 'div',
+  wrapper: 'div',
 };
 
 export default class Toolbar extends Component {
@@ -24,16 +25,16 @@ export default class Toolbar extends Component {
       content,
       ...props
     } = this.props;
-    const className = classNames('toolbar', {
-      [css]: !!css,
-    });
+
+    const className = withBaseClassName('toolbar')(css);
 
     return (
       <Wrapper
         {...props}
         {...{className}}
       >
-        {this.props.children}
+        {!children && content}
+        {children}
       </Wrapper>
     );
   }
