@@ -44,7 +44,7 @@ export class NextButton extends Component {
       ...props
     } = this.props;
 
-    const className = withBaseClassName('navbar-button next-button')(css);
+    const className = withBaseClassName('navbar-button', 'next-button')(css);
 
     return (
       <Icon

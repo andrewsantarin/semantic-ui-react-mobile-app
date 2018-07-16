@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react';
-
-import getDisplayName from 'lib/react/get-display-name';
+import getDisplayName from 'recompose/getDisplayName';
+import wrapDisplayName from 'recompose/wrapDisplayName';
 
 export const DEFAULT_VALUE = {
   context     : null,
@@ -33,7 +33,7 @@ export function withToolbar(ToolbarComponent) {
     }
   }
 
-  const displayName = `withToolbar(${getDisplayName(ToolbarComponent)})`;
+  const displayName = wrapDisplayName(getDisplayName(ToolbarComponent), 'withToolbar');
   ToolbarContainer.displayName = displayName;
 
   return ToolbarContainer;

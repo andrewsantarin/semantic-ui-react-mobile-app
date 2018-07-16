@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 
 import InkFragment from 'lib/ui/ink/InkFragment';
+import NavLink from 'lib/ui/navigation/link/NavLink';
 
 import { PATH as BOOKING_PATH } from './pages/Booking';
 import { PATH as CHAT_PATH } from './pages/Chat';
@@ -56,6 +56,7 @@ export default class AppToolbarMenu extends Component {
   render() {
     const {
       menuMap,
+      location,
       ...props
     } = this.props;
 

@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 
-export default function withBaseClassName(baseClassName) {
+export default function withBaseClassName(...baseClassNames) {
   return function enhanceClassName(className) {
-    const enhancedClassName = classNames({
-      [baseClassName] : !!baseClassName,
+    const enhancedClassName = classNames(...baseClassNames, {
       [className]     : !!className,
     });
 

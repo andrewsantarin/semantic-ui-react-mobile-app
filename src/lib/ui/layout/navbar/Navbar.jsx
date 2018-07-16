@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Menu } from 'semantic-ui-react';
 
 import withBaseClassName from 'lib/ui/with-base-class-name';
-import BackButton from 'lib/ui/layout/back-button/BackButton';
-import UserButton from 'lib/ui/layout/user-button/UserButton';
+import BackButton from 'lib/ui/navigation/back-button/BackButton';
+import UserButton from 'lib/ui/navigation/user-button/UserButton';
 
 export const PROP_TYPES = {
   wrapper: PropTypes.oneOfType([

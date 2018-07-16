@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
+import getDisplayName from 'recompose/getDisplayName';
+import wrapDisplayName from 'recompose/wrapDisplayName';
 
 import Navbar from 'lib/ui/layout/navbar/Navbar';
 import Toolbar, { withToolbar } from 'lib/ui/layout/toolbar/Toolbar';
 import Dropdown from 'lib/ui/input/dropdown/Dropdown';
-import getDisplayName from 'lib/react/get-display-name';
 
 import AppButton from './AppButton';
 import AppToolbarMenu from 'example/AppToolbarMenu';
 
 export function withAppPage({ baseUrl, ...pageProps }) {
-  return function renderWithModalRouteContainer(EnhanceableComponent) {
+  return function renderWithModalRouteContainer(ComposedComponent) {
     class WithAppPage extends Component {
       render() {
         return (
           <AppPage {...pageProps}>
-            <EnhanceableComponent
+            <ComposedComponent
               {...this.props}
               {...{baseUrl}}
             />
@@ -23,7 +24,7 @@ export function withAppPage({ baseUrl, ...pageProps }) {
       }
     }
 
-    const displayName = `withAppPage(${getDisplayName(EnhanceableComponent)})`;
+    const displayName = wrapDisplayName(getDisplayName(ComposedComponent), 'withAppPage');
     WithAppPage.displayName = displayName;
 
     return WithAppPage;
@@ -32,7 +33,7 @@ export function withAppPage({ baseUrl, ...pageProps }) {
 
 export default class AppPage extends Component {
   render() {
-    const { toolbarProps, children } = this.props;
+    const { children } = this.props;
 
     return (
       <div className="page">
@@ -40,34 +41,11 @@ export default class AppPage extends Component {
           menuProps={{
             borderless: true,
           }}
-
           backButton
           userButton
           title="App"
           wrapper="nav"
         />
-        {/*
-        <div style={{ margin: '10vh 0' }} />
-        <AppButton />
-        <div style={{ margin: '10vh 0' }} />
-        <Dropdown
-          selection
-          header="Choose one of these options"
-          placeholder="Choose one of these options"
-          options={[
-            {
-              key: 1,
-              value: 1,
-              text: 'This is an option',
-            },
-            {
-              key: 2,
-              value: 2,
-              text: 'This is an option',
-            },
-          ]}
-        />
-        */}
 
         <main className="page-content">
           {children}
